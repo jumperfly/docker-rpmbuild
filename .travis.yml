@@ -8,7 +8,7 @@ branches:
     - master
     - /^v\d+/
 
-script: |
+script:
   - |
     if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker build . -t jumperfly/rpmbuild:master-${TRAVIS_COMMIT:0:7}

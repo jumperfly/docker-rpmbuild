@@ -20,10 +20,11 @@ script:
     fi
 
 after_script:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      export DOCKER_TAG=$TRAVIS_BRANCH-${TRAVIS_COMMIT:0:7}
+  - |
+    if [ "$TRAVIS_BRANCH" == "master" ]; then
+      DOCKER_TAG=$TRAVIS_BRANCH-${TRAVIS_COMMIT:0:7}
     else
-      export DOCKER_TAG=$TRAVIS_BRANCH
+      DOCKER_TAG=$TRAVIS_BRANCH
     fi
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push jumperfly/rpmbuild:$DOCKER_TAG

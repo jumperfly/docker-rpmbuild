@@ -16,7 +16,7 @@ script:
   - |
     if [[ "$TRAVIS_BRANCH" =~ ^v[0-9] ]]; then
       docker pull jumperfly/rpmbuild:master-${TRAVIS_COMMIT:0:7}
-      docker tag jumperfly/rpmbuild:master-${TRAVIS_COMMIT:0:7} jumperfly/yum-repo-docker:$TRAVIS_BRANCH
+      docker tag jumperfly/rpmbuild:master-${TRAVIS_COMMIT:0:7} jumperfly/rpmbuild:$TRAVIS_BRANCH
     fi
 
 after_script:
